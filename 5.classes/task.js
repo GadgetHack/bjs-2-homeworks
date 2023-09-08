@@ -129,13 +129,17 @@ const book2022 = new Book("Книга из 2022 года", 2022, 250, "Авто�
 library.addBook(book2022);
 
 const givedBook = library.giveBookByName("Мифогенная любовь каст");
+if (givedBook) {
+  givedBook.state = 20;  
+  givedBook.fix();
+  library.addBook(givedBook);
+  
+  console.log(`Состояние книги "Мифогенная любовь каст" после восстановления: ${givedBook.state}`);
+  console.log(`Количество книг в библиотеке после восстановления: ${library.books.length}`);
+} else {
+  console.log(`Книга еще не восстановлена. Количество книг в библиотеке: ${library.books.length}`);
+}
 
-givedBook.state = 20;  
-givedBook.fix();
-library.addBook(givedBook);
-
-console.log(`Состояние книги "Мифогенная любовь каст" после восстановления: ${issuedBook.state}`);
-console.log(`Количество книг в библиотеке после восстановления: ${library.books.length}`);
 
 
 
